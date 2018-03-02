@@ -1,16 +1,16 @@
 package pruebas;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @ApiModel(value = "Cliente")
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Entity
 public class Cliente {
     @ApiModelProperty
     private int numero;
