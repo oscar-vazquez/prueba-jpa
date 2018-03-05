@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jpa" />
         <module name="prueba-jpa" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jpa" target="1.7" />
       <module name="prueba-jpa" target="1.7" />
     </bytecodeTargetLevel>
   </component>
