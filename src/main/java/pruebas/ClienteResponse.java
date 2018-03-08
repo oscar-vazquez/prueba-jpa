@@ -8,10 +8,9 @@ import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-@ApiModel(value = "Cliente")
+@ApiModel(value = "ClienteResponse")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Entity
-public class Cliente {
+public class ClienteResponse {
     @ApiModelProperty
     private int numero;
 

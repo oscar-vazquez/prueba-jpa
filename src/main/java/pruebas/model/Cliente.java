@@ -32,7 +32,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "ClienteResponse{" +
                 "Id=" + Id +
                 ", nombre='" + nombre + '\'' +
                 '}';
