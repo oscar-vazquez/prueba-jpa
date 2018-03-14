@@ -180,6 +180,7 @@
                             osgi.service.blueprint.namespace=http://cxf.apache.org/transports/http/configuration
                         </Import-Service>
                         <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
+                        <manifestLocation>target/META-INF</manifestLocation>
                     </instructions>
                 </configuration>
             </plugin>

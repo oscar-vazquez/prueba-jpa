@@ -13,7 +13,7 @@
     <jaxrs:server id="clienteService" address="/cliente">
         <jaxrs:serviceBeans>
             <bean class="pruebas.ClienteService">
-                <property name="entityManager" ref="jpa"/>
+                <jpa:context  unitname="synergia" property="entityManager" />
             </bean>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
@@ -34,9 +34,5 @@
             <entry key="skip.default.json.provider.registration" value="true" />
         </cxf:properties>
     </cxf:bus>
-
-    <bean id="jpa" class="org.apache.camel.component.jpa.JpaComponent">
-        <jpa:unit unitname="synergia" property="entityManagerFactory" />
-    </bean>
 
 </blueprint>
