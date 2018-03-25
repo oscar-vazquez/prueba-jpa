@@ -9,11 +9,10 @@ public class Telefono {
     @Embeddable
     public static class PK implements Serializable {
         @Column(name = "numero_cliente", nullable=false, updatable=false)
-        private Integer parentId;
+        private int parentId;
 
         @Column(name = "tipo", nullable=false, updatable=false)
-        @GeneratedValue(strategy=GenerationType.IDENTITY)
-        private Short tipo;
+        private int tipo;
     }
 
     @EmbeddedId
@@ -36,11 +35,11 @@ public class Telefono {
     public void setId(PK id) {
         this.id = id;
     }
-*/
 
     public Short getTipo() {
         return id.tipo;
     }
+*/
     /*
     public Cliente getCliente() {
         return cliente;
@@ -49,7 +48,26 @@ public class Telefono {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public void setTipo(short i) {
+        if (id == null) {
+            id = new PK();
+        }
+        id.tipo = i;
+    }
     */
+
+    public int getSeqno() {
+        return id.tipo;
+    }
+
+    public void setCliente(Cliente c) {
+        if (id == null) {
+            id = new PK();
+        }
+        id.parentId = c.getId();
+        id.tipo = c.getTelefonos().size() + 1;
+    }
 
     public String getNumero() {
         return numero;

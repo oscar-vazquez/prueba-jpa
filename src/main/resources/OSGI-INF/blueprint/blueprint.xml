@@ -4,16 +4,20 @@
            xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
            xmlns:cxf="http://cxf.apache.org/blueprint/core"
            xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.0.0"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
            xsi:schemaLocation="
                     http://www.osgi.org/xmlns/blueprint/v1.0.0
                     https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
                     http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
-                    http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+                    http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
+                    http://aries.apache.org/xmlns/jpa/v1.0.0
+                    http://aries.apache.org/xmlns/transactions/v1.2.0 ">
 
     <jaxrs:server id="clienteService" address="/cliente">
         <jaxrs:serviceBeans>
             <bean class="pruebas.ClienteService">
-                <jpa:context  unitname="synergia" property="entityManager" />
+                <jpa:context unitname="synergia" property="entityManager"/>
+                <property name="servicio" ref="servicio"/>
             </bean>
         </jaxrs:serviceBeans>
         <jaxrs:providers>
@@ -24,15 +28,20 @@
 
     <cxf:bus>
         <cxf:features>
-            <cxf:logging />
+            <cxf:logging/>
         </cxf:features>
         <cxf:properties>
             <!--
               This property needs to be set 'true' in order to give preference to JacksonJsonProvider
               over the default Jettison provider.
             -->
-            <entry key="skip.default.json.provider.registration" value="true" />
+            <entry key="skip.default.json.provider.registration" value="true"/>
         </cxf:properties>
     </cxf:bus>
 
+    <bean id="servicio" class="pruebas.Servicio">
+        <jpa:context unitname="synergia" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+
+    </bean>
 </blueprint>

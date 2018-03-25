@@ -16,6 +16,7 @@ public class Cliente {
     @OneToMany(mappedBy = "id.parentId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //@OneToMany(mappedBy = "id.parentId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 //    @OneToMany(mappedBy = "id.parentId", cascade = CascadeType.ALL)
+    @OrderBy("id.tipo")
     private List<Telefono> telefonos;
 
     public int getId() {
