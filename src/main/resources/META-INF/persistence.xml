@@ -8,15 +8,16 @@
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/SynergiaDS)</jta-data-source>
 
         <class>pruebas.model.Cliente</class>
+        <class>pruebas.model.Telefono</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <!--
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            -->
+            <!--
             <property name="hibernate.dialect" value="org.hibernate.dialect.InformixDialect"/>
+            -->
             <property name="hibernate.hbm2ddl.auto" value="none"/>
             <property name="hibernate.archive.autodetection" value="class"/>
 

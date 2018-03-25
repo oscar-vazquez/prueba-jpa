@@ -157,6 +157,10 @@
                 <configuration>
                     <instructions>
                         <Import-Package>
+                            javax.persistence,
+                            org.hibernate.proxy,
+                            javassist.util.proxy,
+
                             javax.jws;version="[0,3)",
                             javax.wsdl,
                             javax.xml.namespace,
